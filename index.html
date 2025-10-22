@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Profit Presentation</title>
+<style>
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0077ff, #00d4ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: hidden;
+  transition: background 1s ease-in-out;
+}
+.slide {
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  width: 80%;
+  max-width: 600px;
+}
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #0077ff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+button:hover {
+  background: #e0f2ff;
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="slide active">
+  <h1>Welcome!</h1>
+  <p>Welcome! Today we will talk about Non-Profit Organizations. These are special groups that work to help people and make the world a better place.</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <h1>What Are Non-Profits?</h1>
+  <p>Non-profit organizations don’t work for money. Their goal is to help others by supporting good causes like education, health, and protecting the planet.</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <h1>Why They Matter</h1>
+  <p>They give food to the hungry, help children learn, care for the sick, and protect nature. They make life better for many people around the world.</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <h1>Examples</h1>
+  <p>Groups like the Red Cross and the World Wildlife Fund help in many ways — from saving lives to protecting animals and the environment.</p>
+  <button onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <h1>Thank You!</h1>
+  <p>Thank you for watching! Remember, even small acts of kindness can make a big change in the world.</p>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const colors = [
+  'linear-gradient(135deg, #0077ff, #00d4ff)',
+  'linear-gradient(135deg, #ff6a00, #ee0979)',
+  'linear-gradient(135deg, #00c853, #b2ff59)',
+  'linear-gradient(135deg, #9c27b0, #ff4081)',
+  'linear-gradient(135deg, #004e92, #000428)'
+];
+function nextSlide() {
+  slides[current].classList.remove('active');
+  current++;
+  if (current >= slides.length) current = slides.length - 1;
+  slides[current].classList.add('active');
+  document.body.style.background = colors[current];
+}
+</script>
+
+</body>
+</html>
